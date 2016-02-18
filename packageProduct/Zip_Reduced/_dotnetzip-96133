@@ -1,0 +1,11 @@
+https://dotnetzip.codeplex.com/
+
+
+
+.NET Framework 4.5（Win10）が当たり前になったら、
+4.5で追加されたSystem.IO.Compression.ZipFileクラスを使う。
+
+
+// 圧縮
+public static void CreateFromDirectory(string, string)
+

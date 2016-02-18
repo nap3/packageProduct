@@ -1,0 +1,112 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{333C9515-0146-4882-94EB-7D7AA62152C7}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>packageProduct</RootNamespace>
+    <AssemblyName>packageProduct</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+    <BaseIntermediateOutputPath>..\..\obj\$(SolutionName)\$(MSBuildProjectName)\</BaseIntermediateOutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>none</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Zip_Reduced\BZip2\BitWriter.cs" />
+    <Compile Include="Zip_Reduced\BZip2\BZip2Compressor.cs" />
+    <Compile Include="Zip_Reduced\BZip2\BZip2InputStream.cs" />
+    <Compile Include="Zip_Reduced\BZip2\BZip2OutputStream.cs" />
+    <Compile Include="Zip_Reduced\BZip2\ParallelBZip2OutputStream.cs" />
+    <Compile Include="Zip_Reduced\BZip2\Rand.cs" />
+    <Compile Include="Zip_Reduced\CRC32.cs" />
+    <Compile Include="Zip_Reduced\Zip\ComHelper.cs" />
+    <Compile Include="Zip_Reduced\Zip\EncryptionAlgorithm.cs" />
+    <Compile Include="Zip_Reduced\Zip\Events.cs" />
+    <Compile Include="Zip_Reduced\Zip\Exceptions.cs" />
+    <Compile Include="Zip_Reduced\Zip\ExtractExistingFileAction.cs" />
+    <Compile Include="Zip_Reduced\Zip\FileSelector.cs" />
+    <Compile Include="Zip_Reduced\Zip\OffsetStream.cs" />
+    <Compile Include="Zip_Reduced\Zip\Shared.cs" />
+    <Compile Include="Zip_Reduced\Zip\WinZipAes.cs" />
+    <Compile Include="Zip_Reduced\Zip\ZipConstants.cs" />
+    <Compile Include="Zip_Reduced\Zip\ZipCrypto.cs" />
+    <Compile Include="Zip_Reduced\Zip\ZipDirEntry.cs" />
+    <Compile Include="Zip_Reduced\Zip\ZipEntry.cs" />
+    <Compile Include="Zip_Reduced\Zip\ZipEntry.Extract.cs" />
+    <Compile Include="Zip_Reduced\Zip\ZipEntry.Read.cs" />
+    <Compile Include="Zip_Reduced\Zip\ZipEntry.Write.cs" />
+    <Compile Include="Zip_Reduced\Zip\ZipEntrySource.cs" />
+    <Compile Include="Zip_Reduced\Zip\ZipErrorAction.cs" />
+    <Compile Include="Zip_Reduced\Zip\ZipFile.AddUpdate.cs" />
+    <Compile Include="Zip_Reduced\Zip\ZipFile.Check.cs" />
+    <Compile Include="Zip_Reduced\Zip\ZipFile.cs" />
+    <Compile Include="Zip_Reduced\Zip\ZipFile.Events.cs" />
+    <Compile Include="Zip_Reduced\Zip\ZipFile.Extract.cs" />
+    <Compile Include="Zip_Reduced\Zip\ZipFile.Read.cs" />
+    <Compile Include="Zip_Reduced\Zip\ZipFile.Save.cs" />
+    <Compile Include="Zip_Reduced\Zip\ZipFile.SaveSelfExtractor.cs" />
+    <Compile Include="Zip_Reduced\Zip\ZipFile.Selector.cs" />
+    <Compile Include="Zip_Reduced\Zip\ZipFile.x-IEnumerable.cs" />
+    <Compile Include="Zip_Reduced\Zip\ZipInputStream.cs" />
+    <Compile Include="Zip_Reduced\Zip\ZipOutputStream.cs" />
+    <Compile Include="Zip_Reduced\Zip\ZipSegmentedStream.cs" />
+    <Compile Include="Zip_Reduced\Zlib\Deflate.cs" />
+    <Compile Include="Zip_Reduced\Zlib\DeflateStream.cs" />
+    <Compile Include="Zip_Reduced\Zlib\GZipStream.cs" />
+    <Compile Include="Zip_Reduced\Zlib\Inflate.cs" />
+    <Compile Include="Zip_Reduced\Zlib\InfTree.cs" />
+    <Compile Include="Zip_Reduced\Zlib\ParallelDeflateOutputStream.cs" />
+    <Compile Include="Zip_Reduced\Zlib\Tree.cs" />
+    <Compile Include="Zip_Reduced\Zlib\Zlib.cs" />
+    <Compile Include="Zip_Reduced\Zlib\ZlibBaseStream.cs" />
+    <Compile Include="Zip_Reduced\Zlib\ZlibCodec.cs" />
+    <Compile Include="Zip_Reduced\Zlib\ZlibConstants.cs" />
+    <Compile Include="Zip_Reduced\Zlib\ZlibStream.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
