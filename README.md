@@ -23,11 +23,11 @@ packageProduct releaseフォルダ
 
 
 ## Licence
-This is licensed under the MIT Licence.
+This is licensed under the MIT Licence.     
 <https://github.com/nap3/packageProduct/blob/master/LICENSE>
 
 
 ## Author
-nap3,
+nap3.
 <https://github.com/nap3>
 
