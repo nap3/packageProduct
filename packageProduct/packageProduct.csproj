@@ -47,6 +47,7 @@
   <ItemGroup>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ZipReduced.cs" />
     <Compile Include="Zip_Reduced\BZip2\BitWriter.cs" />
     <Compile Include="Zip_Reduced\BZip2\BZip2Compressor.cs" />
     <Compile Include="Zip_Reduced\BZip2\BZip2InputStream.cs" />

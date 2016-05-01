@@ -7,6 +7,11 @@
 *.userosscache
 *.sln.docstates
 
+!packageProduct.Test/TestResource/GenerateFileNameTest/relayCredentials.dll
+!bin/packageProduct.exe
+!bin/pack.bat
+
+
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs
 
@@ -18,7 +23,7 @@
 x64/
 x86/
 bld/
-[Bb]in/
+#[Bb]in/
 [Oo]bj/
 
 # Visual Studio 2015 cache/options directory

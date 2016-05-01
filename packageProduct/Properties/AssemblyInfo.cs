@@ -5,14 +5,15 @@ using System.Runtime.InteropServices;
 // アセンブリに関する一般情報は以下の属性セットをとおして制御されます。
 // アセンブリに関連付けられている情報を変更するには、
 // これらの属性値を変更してください。
-[assembly: AssemblyTitle("packageProduct")]
+[assembly: AssemblyTitle("https://github.com/nap3/packageProduct")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
 [assembly: AssemblyProduct("packageProduct")]
-[assembly: AssemblyCopyright("Copyright ©  2016")]
+[assembly: AssemblyCopyright("Copyright ©  2016 nap3")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
+
 
 // ComVisible を false に設定すると、その型はこのアセンブリ内で COM コンポーネントから 
 // 参照不可能になります。COM からこのアセンブリ内の型にアクセスする場合は、
@@ -24,13 +25,13 @@ using System.Runtime.InteropServices;
 
 // アセンブリのバージョン情報は、以下の 4 つの値で構成されています:
 //
-//      Major Version
-//      Minor Version 
-//      Build Number
-//      Revision
+//      Major Version   【手動更新】機能追加
+//      Minor Version 　【手動更新】バグ修正レベルの修正
+//      Build Number	【自動更新】2000/1/1からの経過日数
+//      Revision		【自動更新】その日の00:00:00（JST基準）からの経過秒数を2で割った数（毎日0スタートになる。）
 //
-// すべての値を指定するか、下のように '*' を使ってビルドおよびリビジョン番号を 
-// 既定値にすることができます:
-// [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyFileVersion("1.0.0.0")]
+[assembly: AssemblyVersion("2.0.*")]
+
+#if DEBUG
+[assembly: InternalsVisibleTo("packageProduct.Test")]
+#endif

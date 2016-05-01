@@ -1,39 +1,37 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+using System.IO;
+using System.Reflection;
+using System.Threading;
 
 namespace packageProduct
 {
-	using System.IO;
-	using System.Reflection;
-	using System.Threading;
-
-	class Program
+	internal class Program
 	{
-		static void Main(string[] args)
+		internal static void Main(string[] args)
 		{
-			//var versionInfo = System.Diagnostics.FileVersionInfo.GetVersionInfo(args[0]);	//ファイルバージョンなら取得可能
-				
-			var targetDir = Path.GetDirectoryName(args[0]);
-			var zipRootDir = GenerateFileName(args[0]);
-			if (!Directory.Exists(targetDir))
+			if (args.Length ==0)
 			{
-				Console.WriteLine(targetDir + "が見つかりません。");
+				Console.WriteLine("引数に圧縮対象のモジュールのパスを指定してください。");
+				Console.WriteLine("  packageProduct bin\\aa.exe");
+				Console.WriteLine("  aa.exeが2016/1/2のタイムスタンプでver3.4.5.6の出力例：aa_3_4_160102.zip");
+				Thread.Sleep(12000);
+				return;
 			}
 
-			var zipFile = Path.GetFullPath(zipRootDir) + ".zip";
+			var argFileName = args[0];
+			var targetDir = Path.GetDirectoryName(argFileName);
+			var zipFile = GenerateFileName(argFileName) + ".zip";
+
 			if (File.Exists(zipFile))
 			{
 				File.Delete(zipFile);
 			}
 
-			Console.WriteLine(string.Format("引数\t{0}", args[0]));
+			Console.WriteLine(string.Format("引数\t{0}", argFileName));
 			Console.WriteLine(string.Format("圧縮対象Dir\t{0}", targetDir));
-			Console.WriteLine(string.Format("Zipファイル内のルートフォルダ\t{0}", zipRootDir));
 			Console.WriteLine(string.Format("Zipファイル名\t{0}", zipFile));
 
-			ZipFileCreateFromDirector(targetDir, zipFile, zipRootDir);
+			ZipReduced.ZipCompress(targetDir, zipFile);
 
 			Thread.Sleep(12000);
 		}
@@ -41,43 +39,20 @@ namespace packageProduct
 		/// <summary>
 		/// アセンブリ情報からzipファイル名を生成する。
 		/// </summary>
-		static string GenerateFileName(string appName)
+		internal static string GenerateFileName(string appName)
 		{
 			var fullPath = Path.GetFullPath(appName);
 			var assembly = Assembly.LoadFile(fullPath);
 			var assemblyName = assembly.GetName();
-			var version = assemblyName.Version.ToString();
+			var version = assemblyName.Version;
 			var simpleName = assemblyName.Name;
 
-			return simpleName + "_" + version;
+			var day = new DateTime(2000, 1, 1);
+			day = day.AddDays(version.Build);
+			return simpleName + "_" + version.Major + "_" + version.Minor + "_" + day.ToString("yyMMdd");
 		}
 
 
-		public static void ZipFileCreateFromDirector(string targetDir, string zipFileName, string zipRootDir)
-		{
-			using (var zip = new Ionic.Zip.ZipFile())
-			{
-				//IBM437でエンコードできないファイル名やコメントをUTF-8でエンコード
-				//zip.AlternateEncoding = Encoding.GetEncoding("shift_jis");
-				zip.AlternateEncoding = Encoding.UTF8;
-				zip.AlternateEncodingUsage = Ionic.Zip.ZipOption.Always;
-    
 
-				//圧縮レベルを変更
-				zip.CompressionLevel = Ionic.Zlib.CompressionLevel.BestCompression;
-
-				//必要な時はZIP64で圧縮する。デフォルトはNever。
-				zip.UseZip64WhenSaving = Ionic.Zip.Zip64Option.AsNecessary;
-
-				//エラー発生時は例外をスロー。
-				zip.ZipErrorAction = Ionic.Zip.ZipErrorAction.Throw;
-
-				//フォルダを追加する
-				zip.AddDirectory(targetDir, zipRootDir);
-
-				//ZIP書庫を作成する
-				zip.Save(zipFileName);
-			}
-		}
 	}
 }
