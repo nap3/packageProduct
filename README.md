@@ -19,10 +19,8 @@ githubでのリリースのため、ファイル名にプロダクト名＋ア�
 ## Usage
 1. コマンドラインから以下のコマンドを実行する。  
 ```cmd
-packageProduct releaseフォルダ
+packageProduct リリースするメインのモジュール名
 ```
-
-
 
 
 ## Licence
@@ -34,10 +32,5 @@ This is licensed under the MIT Licence.
 * [DotNetZip v1.9.1.8](https://dotnetzip.codeplex.com/)  [Microsoft Public License (Ms-PL)](https://github.com/nap3/packageProduct/blob/master/packageProduct/Zip_Reduced/License.txt)
 
 ## Author
-<<<<<<< HEAD
 nap3,<https://github.com/nap3>
-=======
-nap3.
-<https://github.com/nap3>
->>>>>>> 7b863dce5696516ce535df38db0a752362a8b4f4
 
