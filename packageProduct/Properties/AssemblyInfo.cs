@@ -30,7 +30,7 @@ using System.Runtime.InteropServices;
 //      Build Number	【自動更新】2000/1/1からの経過日数
 //      Revision		【自動更新】その日の00:00:00（JST基準）からの経過秒数を2で割った数（毎日0スタートになる。）
 //
-[assembly: AssemblyVersion("2.0.*")]
+[assembly: AssemblyVersion("2.1.*")]
 
 #if DEBUG
 [assembly: InternalsVisibleTo("packageProduct.Test")]

@@ -1,7 +1,13 @@
-del Release\packageProduct.exe.config
-del Release\packageProduct.vshost.exe
-del Release\packageProduct.vshost.exe.config
-del Release\packageProduct.vshost.exe.manifest
+@set stagingDir=stagingDir\
 
-packageProduct.exe Release\packageProduct.exe
+md %stagingDir%
+
+copy Release\packageProduct.exe             %stagingDir%
+
+copy ..\README.md                           %stagingDir%
+copy ..\LICENSE                             %stagingDir%
+
+packageProduct.exe %stagingDir%\packageProduct.exe
+
+rmdir /S /Q %stagingDir%
 Timeout /t10

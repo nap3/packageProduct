@@ -18,5 +18,13 @@ namespace packageProduct.Test
 			Assert.IsTrue(File.Exists(@".\ZipCompressTest\あいう.txt"));
 			Assert.IsTrue(File.Exists(@".\ZipCompressTest\えお\かきく.txt"));
 		}
+
+        [TestMethod]
+        public void ZipCompress_圧縮対象フォルダがpackageProductと同じフォルダの場合にzipファイルが作成されること()
+        {
+            ZipReduced.ZipCompress(Directory.GetCurrentDirectory(), "ZipCompress_curentDir.zip");
+            Assert.IsTrue(File.Exists(@"ZipCompress_curentDir.zip"));
+        }
+
 	}
 }

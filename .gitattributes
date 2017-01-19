@@ -1,0 +1,13 @@
+
+# Git doesn't convert CRLF or compute a diff in this file.
+*.png binary
+*.jpg binary
+*.dll binary
+*.exe binary
+
+# Git doesn't convert CRLF in this file. (Git compute a diff in this file.)
+*.txt -text
+*.bat -text
+*.sql -text
+*.pdf -text
+

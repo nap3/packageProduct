@@ -13,23 +13,25 @@ namespace packageProduct
 			{
 				Console.WriteLine("引数に圧縮対象のモジュールのパスを指定してください。");
 				Console.WriteLine("  packageProduct bin\\aa.exe");
-				Console.WriteLine("  aa.exeが2016/1/2のタイムスタンプでver3.4.5.6の出力例：aa_3_4_160102.zip");
+                Console.WriteLine("  aa.exeのバージョンが2.0.5887.34699のzipファイル名 aa_2_0_160213.zip (日付は5887を変換している。)");
 				Thread.Sleep(12000);
 				return;
 			}
 
-			var argFileName = args[0];
+			var argFileName = Path.GetFullPath(args[0]);
 			var targetDir = Path.GetDirectoryName(argFileName);
 			var zipFile = GenerateFileName(argFileName) + ".zip";
 
-			if (File.Exists(zipFile))
-			{
-				File.Delete(zipFile);
-			}
 
 			Console.WriteLine(string.Format("引数\t{0}", argFileName));
 			Console.WriteLine(string.Format("圧縮対象Dir\t{0}", targetDir));
 			Console.WriteLine(string.Format("Zipファイル名\t{0}", zipFile));
+
+            if (File.Exists(zipFile))
+            {
+                File.Delete(zipFile);
+                Console.WriteLine("同名のZipファイルが存在していたため削除しました。");
+            }
 
 			ZipReduced.ZipCompress(targetDir, zipFile);
 
@@ -42,6 +44,11 @@ namespace packageProduct
 		internal static string GenerateFileName(string appName)
 		{
 			var fullPath = Path.GetFullPath(appName);
+            if (!File.Exists(fullPath))
+            {
+                throw new FileNotFoundException("指定されたファイルが見つかりません。（" + fullPath + "）");
+            }
+
 			var assembly = Assembly.LoadFile(fullPath);
 			var assemblyName = assembly.GetName();
 			var version = assemblyName.Version;
