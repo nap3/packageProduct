@@ -1,15 +1,15 @@
-#packageProduct #########################
+# packageProduct #########################
 githubにreleaseするためのzipファイルを作る。
 
-## Description
+## Description ##########################################
 githubでのリリースのため、ファイル名にプロダクト名＋アセンブリバージョンを付けた圧縮ファイルを作成する。
 
 
-## Features
+## Features ##########################################
 * リリースするメインのファイルのアセンブリバージョンからzipファイルのファイル名を生成する。
 * メインのファイルがあるディレクトリをzipファイルのルートディレクトリとして関連資源を含むzipファイルを作成する。
 
-##Requirement
+## Requirement ##########################################
 ### For use
 * .Net Framework 2.0 or higher version
 
@@ -17,10 +17,10 @@ githubでのリリースのため、ファイル名にプロダクト名＋ア�
 * Visual C# 2010
 
 
-## Usage
+## Usage ##########################################
 1. AssemblyInfo.csのアセンブリバージョンを以下のように`*`で指定する。
 
-    ```csharp
+    ```csharp
     [assembly: AssemblyVersion("2.0.*")]
     // アセンブリのバージョン情報は、以下の 4 つの値で構成されています:
     //      Major Version   【手動更新】機能追加
@@ -32,24 +32,23 @@ githubでのリリースのため、ファイル名にプロダクト名＋ア�
 1. プロダクト名とするモジュールをzipのルートディレクトリとしてリリースする資源を集める。
 
 1. コマンドラインから以下のコマンドを実行する。  （sample.exeは、リリースするプロダクトの例）
-
-    ```bat
-    packageProduct sample.exe
-    ```
+```bat
+packageProduct sample.exe
+```
 
 1.  以下のようなzipファイルが作成される。（AssemblyVersionのBuild Numberより、ビルドした日が生成される。）        
      **sample_2_0_170102.zip** 
 
 
 
-## Licence
+## Licence ##########################################
 This is licensed under the MIT Licence.     
 <https://github.com/nap3/packageProduct/blob/master/LICENSE>
 
 
-###Open Source Components / Libraries
+### Open Source Components / Libraries
 * [DotNetZip v1.9.1.8](https://dotnetzip.codeplex.com/)  [Microsoft Public License (Ms-PL)](https://github.com/nap3/packageProduct/blob/master/packageProduct/Zip_Reduced/License.txt)
 
-## Author
+## Author ##########################################
 nap3,<https://github.com/nap3>
 
