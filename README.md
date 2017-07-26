@@ -18,21 +18,26 @@ githubでのリリースのため、ファイル名にプロダクト名＋ア�
 
 
 ## Usage ##########################################
-1. AssemblyInfo.csのアセンブリバージョンを`[assembly: AssemblyVersion("2.0.*")]`のように`*`で指定する。    
-    アセンブリのバージョン情報は、以下の 4 つの値で構成されています       
-     - Major Version   【手動更新】機能追加       
-     - Minor Version   【手動更新】バグ修正レベルの修正       
-     - Build Number    【自動更新】2000/1/1からの経過日数      
-     - Revision        【自動更新】その日の00:00:00（JST基準）からの経過秒数を2で割った数（毎日0スタートになる。）      
+#### 1. AssemblyInfo.csのアセンブリバージョンを以下のように`*`で指定する。
+```csharp
+[assembly: AssemblyVersion("2.0.*")]`
+//アセンブリのバージョン情報は、以下の 4 つの値で構成されています       
+//Major Version   【手動更新】機能追加       
+//Minor Version   【手動更新】バグ修正レベルの修正       
+//Build Number    【自動更新】2000/1/1からの経過日数      
+//Revision        【自動更新】その日の00:00:00（JST基準）からの経過秒数を2で割った数（毎日0スタートになる。）      
+```
 
+#### 2. プロダクト名とするモジュールをzipのルートディレクトリとしてリリースする資源を集める。
 
-1. プロダクト名とするモジュールをzipのルートディレクトリとしてリリースする資源を集める。
+#### 3. コマンドラインで次のコマンドを実行する。  （sample.exeは、リリースするプロダクトの例）    
+```cmd
+packageProduct sample.exe
+```
 
-1. コマンドラインで`packageProduct sample.exe`を実行する。  （sample.exeは、リリースするプロダクトの例）    
-
-
-1.  **sample_2_0_170102.zip** のようなzipファイルが作成される。    
-    （AssemblyVersionのBuild Numberより、ビルドした日が生成される。）          
+#### 4.  次のような名前のzipファイルが作成される。    
+**sample_2_0_170102.zip**    
+AssemblyVersionのBuild Numberより、ビルドした日が生成される。         
       
 
 
