@@ -1,3 +1,6 @@
+# Git doesn't convert CRLF in all file. (Git compute a diff in all file.)
+* -text
+
 
 # Git doesn't convert CRLF or compute a diff in this file.
 *.png binary
@@ -6,8 +9,9 @@
 *.exe binary
 
 # Git doesn't convert CRLF in this file. (Git compute a diff in this file.)
-*.txt -text
-*.bat -text
-*.sql -text
-*.pdf -text
 
+
+# Git convert Shift-JIS to UTF-8 in this file. (Git compute a diff in this file.)
+# copy ToUtf8.exe to ./_GitTools  folder
+# git config diff.sjis.textconv './_GitTools/ToUtf8.exe'
+*.bat diff=sjis

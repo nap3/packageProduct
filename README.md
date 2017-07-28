@@ -29,15 +29,28 @@ githubでのリリースのため、ファイル名にプロダクト名＋ア�
 ```
 
 #### 2. プロダクト名とするモジュールをzipのルートディレクトリとしてリリースする資源を集める。
-
-#### 3. コマンドラインで次のコマンドを実行する。  （sample.exeは、リリースするプロダクトの例）    
+プロダクト名とするモジュールをsample.exeとして以下のように資源を集めると、sample.exeがあるreleaseフォルダがzipのルートディレクトリとなる。     
+     
+X:\SampleProj     
+|     
++---release     
+|   |   LICENSE     
+|   |   README.md     
+|   |   **sample.exe**     
+|   |     
+|   \---README_subfiles     
+|    　　　image1.png     
+|     
+|     
+     
+#### 3. コマンドラインで次のコマンドを実行して、リリースする資源を圧縮する。      
 ```cmd
 packageProduct sample.exe
 ```
 
-#### 4.  次のような名前のzipファイルが作成される。    
+#### 4.  圧縮が完了すると次のような名前のzipファイルが作成される。    
+圧縮が完了すると、sample.exeのAssemblyVersionのBuild Numberより、ファイル名にバージョンとビルドした日を含むzipファイルが生成される。         
 **sample_2_0_170102.zip**    
-AssemblyVersionのBuild Numberより、ビルドした日が生成される。         
       
 
 
@@ -51,5 +64,5 @@ This is licensed under the MIT Licence.
 * [DotNetZip v1.9.1.8](https://dotnetzip.codeplex.com/)  [Microsoft Public License (Ms-PL)](https://github.com/nap3/packageProduct/blob/master/packageProduct/Zip_Reduced/License.txt)
 
 ## Author ##########################################
-nap3,<https://github.com/nap3>
+nap3, <https://github.com/nap3>
 

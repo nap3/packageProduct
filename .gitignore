@@ -8,8 +8,6 @@
 *.sln.docstates
 
 !packageProduct.Test/TestResource/GenerateFileNameTest/relayCredentials.dll
-!bin/packageProduct.exe
-!bin/pack.bat
 
 
 # User-specific files (MonoDevelop/Xamarin Studio)
