@@ -50,6 +50,7 @@ packageProduct sample.exe
 
 #### 4.  圧縮が完了すると次のような名前のzipファイルが作成される。    
 圧縮が完了すると、sample.exeのAssemblyVersionのBuild Numberより、ファイル名にバージョンとビルドした日を含むzipファイルが生成される。         
+
 **sample_2_0_170102.zip**    
       
 
